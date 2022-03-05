@@ -5,12 +5,20 @@
 
 //visualizzare i numeri
 arrRandomNum = []
+let numeriRandom = document.querySelector(".numeri-random");
 
 for (let i = 0; i < 5; i++) {
     randomNum = Math.floor(Math.random() * 10 ) + 1;
     arrRandomNum.push(randomNum)
 }
-
-
 console.log(arrRandomNum)
+numeriRandom.textContent = arrRandomNum.join(", ");
 
+
+//numeri visibili per 30 sec
+
+const timerNumbers = setTimeout(hideNumbers, 2000); //TOFIX  mettere 30 sec
+
+function hideNumbers() {
+  numeriRandom.style.display = 'none';
+}
