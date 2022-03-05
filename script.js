@@ -16,9 +16,21 @@ numeriRandom.textContent = arrRandomNum.join(", ");
 
 
 //numeri visibili per 30 sec
-
 const timerNumbers = setTimeout(hideNumbers, 2000); //TOFIX  mettere 30 sec
 
 function hideNumbers() {
   numeriRandom.style.display = 'none';
 }
+
+// prompt per l'utente
+arrUserNum = []
+const timerPrompt = setTimeout(promptAppear, 3000);
+function promptAppear(){
+    let num1 = parseInt(prompt("inserisci il primo numero"));
+    let num2 = parseInt(prompt("inserisci il secondo numero"));
+    let num3 = parseInt(prompt("inserisci il terzo numero"));
+    let num4 = parseInt(prompt("inserisci il quarto numero"));
+    let num5 = parseInt(prompt("inserisci il quinto numero"));
+    arrUserNum.push(num1, num2, num3, num4, num5)
+}
+console.log(arrUserNum)
