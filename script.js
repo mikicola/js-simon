@@ -4,6 +4,7 @@
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 //visualizzare i numeri
+// arrRandomNum = [1,1,1,1,1]
 arrRandomNum = []
 let numeriRandom = document.querySelector(".numeri-random");
 
@@ -15,7 +16,7 @@ console.log(arrRandomNum)
 numeriRandom.textContent = arrRandomNum.join(", ");
 
 
-//numeri visibili per 30 sec
+// numeri visibili per 30 sec
 const timerNumbers = setTimeout(hideNumbers, 2000); //TOFIX  mettere 30 sec
 
 function hideNumbers() {
@@ -24,6 +25,9 @@ function hideNumbers() {
 
 // prompt per l'utente
 arrUserNum = []
+let numeriUser = document.querySelector(".numeri-user");
+numeriUser.textContent = arrUserNum.join(", ");
+
 const timerPrompt = setTimeout(promptAppear, 3000);
 function promptAppear(){
     let num1 = parseInt(prompt("inserisci il primo numero"));
@@ -33,4 +37,17 @@ function promptAppear(){
     let num5 = parseInt(prompt("inserisci il quinto numero"));
     arrUserNum.push(num1, num2, num3, num4, num5)
 }
+// arrUserNum.toString()
+// arrUserNum.textContent = arrRandomNum.join(", ");
+// arrUserNum.textContent = arrRandomNum.toString();
 console.log(arrUserNum)
+
+// verifica TOFIX
+function verifica(){
+    if (arrRandomNum === arrRandomNum){
+        alert('hai vinto')
+    } else {
+        alert('hai perso')
+    }
+} 
+ 
