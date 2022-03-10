@@ -9,7 +9,7 @@ arrRandomNum = []
 let numeriRandom = document.querySelector(".numeri-random");
 
 for (let i = 0; i < 5; i++) {
-    randomNum = Math.floor(Math.random() * 10 ) + 1;
+    randomNum = Math.floor(Math.random() * 100 ) + 1;
     arrRandomNum.push(randomNum)
 }
 console.log(arrRandomNum)
@@ -17,19 +17,21 @@ numeriRandom.textContent = arrRandomNum.join(", ");
 
 
 // numeri visibili per 30 sec
-const timerNumbers = setTimeout(hideNumbers, 2000); //TOFIX  mettere 30 sec
+const timerNumbers = setTimeout(hideNumbers, 30000); //TOFIX  mettere 30 sec
 
 function hideNumbers() {
   numeriRandom.style.display = 'none';
 }
 
-// prompt per l'utente
 let numeriUser = document.querySelector(".numeri-user");
-const timerPrompt = setTimeout(promptAppear, 3000);
+const timerPrompt = setTimeout(promptAppear, 30000);
 
+// prompt per l'utente
 function promptAppear(){
     arrUserNum = []
-    numeriUser.textContent = arrUserNum.join(", ");
+    let numeriUser = document.querySelector(".numeri-user");
+    // numeriUser.textContent = arrUserNum.join(", ");
+
     let num1 = parseInt(prompt("inserisci il primo numero"));
     let num2 = parseInt(prompt("inserisci il secondo numero"));
     let num3 = parseInt(prompt("inserisci il terzo numero"));
@@ -46,9 +48,23 @@ function promptAppear(){
                 arrIndovinati.push(arrUserNum[i]);
             }
         }
+
+        let indovinati = document.querySelector(".indovinati");
         console.log('Hai indovinato:', arrIndovinati.length);
         console.log('arrIndovinati', arrIndovinati);
-}
+        
+        // fa comparire i numeri nel dom 
+        let numeriRandomAfter = document.querySelector('.numeri-random-after')
+        numeriRandomAfter.innerHTML = 'I numeri che hai visto: ' + arrRandomNum
+
+        numeriUser.innerHTML = 'I tuoi numeri: ' + arrUserNum
+        indovinati.innerHTML = 'Hai indovinato ' + arrIndovinati.length + ' numeri!'  
+    }
+
+    // const timerNumbers2 = setTimeout(showNumbers, 6000);
+    // function showNumbers() {
+    //     numeriRandom.style.display = 'block';
+    //   }
 
 
  
