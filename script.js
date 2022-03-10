@@ -4,7 +4,7 @@
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 //visualizzare i numeri
-// arrRandomNum = [1,1,1,1,1]
+
 arrRandomNum = []
 let numeriRandom = document.querySelector(".numeri-random");
 
@@ -24,30 +24,31 @@ function hideNumbers() {
 }
 
 // prompt per l'utente
-arrUserNum = []
 let numeriUser = document.querySelector(".numeri-user");
-numeriUser.textContent = arrUserNum.join(", ");
-
 const timerPrompt = setTimeout(promptAppear, 3000);
+
 function promptAppear(){
+    arrUserNum = []
+    numeriUser.textContent = arrUserNum.join(", ");
     let num1 = parseInt(prompt("inserisci il primo numero"));
     let num2 = parseInt(prompt("inserisci il secondo numero"));
     let num3 = parseInt(prompt("inserisci il terzo numero"));
     let num4 = parseInt(prompt("inserisci il quarto numero"));
     let num5 = parseInt(prompt("inserisci il quinto numero"));
     arrUserNum.push(num1, num2, num3, num4, num5)
-}
-// arrUserNum.toString()
-// arrUserNum.textContent = arrRandomNum.join(", ");
-// arrUserNum.textContent = arrRandomNum.toString();
-console.log(arrUserNum)
+    console.log(arrUserNum)
 
-// verifica TOFIX
-function verifica(){
-    if (arrRandomNum === arrRandomNum){
-        alert('hai vinto')
-    } else {
-        alert('hai perso')
-    }
-} 
+// comunico i numeri indovinati 
+    let arrIndovinati = [];
+        for (let i = 0; i < 5; i++) {
+            
+            if (arrRandomNum[i] == arrUserNum[i]) {
+                arrIndovinati.push(arrUserNum[i]);
+            }
+        }
+        console.log('Hai indovinato:', arrIndovinati.length);
+        console.log('arrIndovinati', arrIndovinati);
+}
+
+
  
